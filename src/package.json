@@ -1,0 +1,8 @@
+{
+    "name": "sada-internaltional",
+    "productName": "bill-generator2",
+    "version": "0.0.1",
+    "description": "Angular CLI + Electron",
+    "main": "electron-main.js",
+    "license": "MIT"
+}

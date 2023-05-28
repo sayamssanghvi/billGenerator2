@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.snackbar {
+    color: #2C2E43;
+    background-color: #B2B1B9;
+}
+
+.custom-mat-dailog .mat-dialog-container {
+    margin: 0px;
+    padding: 10px;
+    --tw-bg-opacity: 1;
+    width: '400px';
+    height: '400px';
+    background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

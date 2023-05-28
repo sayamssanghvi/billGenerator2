@@ -1,0 +1,146 @@
+<div class="container h-full grid justify-items-center">
+  <div class="grid grid-cols-5 h-full w-full bg-slate-600 rounded-2xl">
+    <!-- Column-1 Basic Bill Details-->
+    <div class="grid-flow-row my-3 ml-3 pb-1 col-span-2">
+      <!-- Place Of Supply and Vendor -->
+      <div class="grid-flow-row ml-3 mt-3 mb-5 pb-1">
+        <p class="text-slate-300 font-bold text-xl">Bill</p>
+        <div class="grid grid-cols-2">
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold">Place Of Supply*</p>
+            <input class="rounded-lg bg-slate-100 p-2" />
+          </div>
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold w-fit">Search By Vendor*</p>
+            <div class="search-form-vendor bg-slate-100 rounded-lg p-1 w-full">
+              <input class="search-box-vendor rounded-lg bg-slate-100 pb-1 pl-1 border-none" />
+              <button
+                class="search-button"
+                (click)="openSelectDialog('SEARCH_VENDOR_BY_NAME')"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ship To -->
+      <div class="grid-flow-row ml-3 pb-2 mb-4">
+        <p class="text-slate-300 font-bold text-xl">Ship To</p>
+        <div class="grid grid-cols-2">
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold">Door No. & Street Name</p>
+            <textarea class="rounded-lg bg-slate-100 pb-1 pl-1"></textarea>
+          </div>
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold pb-1">State/City & Pincode</p>
+            <textarea class="rounded-lg bg-slate-100 pl-1"></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- PO No. Supplier Code -->
+      <div class="grid-flow-row ml-3 mb-7 pb-1">
+        <div class="grid grid-cols-2">
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold">PO No.</p>
+            <input class="rounded-lg bg-slate-100 pb-1 pl-1" />
+          </div>
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold">Supplier Code</p>
+            <input class="rounded-lg bg-slate-100 pb-1 pl-1" />
+          </div>
+        </div>
+      </div>
+      <!-- Terms and DueDate -->
+      <div class="grid-flow-row ml-3 mb-7 pb-1">
+        <div class="grid grid-cols-2">
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold">Terms</p>
+            <input class="rounded-lg bg-slate-100 pb-1 pl-1 /" />
+          </div>
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold">DueDate</p>
+            <input class="rounded-lg bg-slate-100 pb-1 pl-1" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Column-2 Product Details -->
+    <div class="grid-flow-row m-1 mt-3 col-span-3">
+      <!-- Search Inputs -->
+      <div class="grid-flow-row h-1/4 mt-3 ml-1">
+        <p class="text-slate-300 font-bold text-xl">Product</p>
+        <div class="grid grid-cols-2">
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold">Search By Name</p>
+            <div class="search-form bg-slate-100 rounded-lg p-1">
+              <input class="search-box rounded-lg bg-slate-100 pb-1 pl-1 border-none" />
+              <button
+                class="search-button"
+                (click)="openSelectDialog('SEARCH_PRODUCT_BY_NAME')"
+              ></button>
+            </div>
+          </div>
+          <div class="grid-flow-row">
+            <p class="text-slate-200 font-bold w-fit">Search By HSN</p>
+            <div class="search-form bg-slate-100 rounded-lg p-1">
+              <input class="search-box rounded-lg bg-slate-100 pb-1 pl-1 border-none" />
+              <button
+                class="search-button"
+                (click)="openSelectDialog('SEARCH_PRODUCT_BY_HSN_CODE')"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Table -->
+      <div class="grid-flow-row h-1/2 border mr-5">
+        <div class="grid grid-cols-12 pl-1 border">
+          <p class="text-slate-300 font-bold text-lg col-start-1 col-span-3">
+            Name
+          </p>
+          <p class="text-slate-300 font-bold text-lg col-start-5 col-span-2">
+            HSN/SAC
+          </p>
+          <p class="text-slate-300 font-bold text-lg col-start-7 col-span-1">
+            Qty
+          </p>
+          <p class="text-slate-300 font-bold text-lg col-start-9 col-span-2">
+            Rate
+          </p>
+          <p class="text-slate-300 font-bold text-lg col-start-11 col-span-2">
+            GST%
+          </p>
+        </div>
+        <div class="table-product mb-7">
+          <div class="grid grid-cols-12 pl-2 mt-1" *ngFor="let i of products">
+            <p class="text-slate-300 font-bold col-start-1 col-span-3">
+              {{ i.name }}
+            </p>
+            <p class="text-slate-300 font-bold col-start-5 col-span-2">
+              {{ i.hsnSacCode }}
+            </p>
+            <input
+              class="font-bold col-start-7 col-span-1 rounded-md pl-1"
+              [value]="i.qty"
+            />
+            <input
+              class="font-bold col-start-9 col-span-2 rounded-md pl-1 mr-2"
+              [value]="i.rate"
+            />
+            <input
+              class="font-bold col-start-11 col-span-2 rounded-md pl-1 mr-2"
+              [value]="i.gst"
+            />
+          </div>
+        </div>
+        <!-- Confirm Button -->
+        <div class="grid grid-cols-11 w-full">
+          <button
+            class="bg-slate-400 p-3 px-10 rounded-2xl font-bold text-slate-200 col-start-5 col-span-2"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

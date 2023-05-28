@@ -1,0 +1,12 @@
+{
+    "db": {
+        "mysql": {
+            "host": "127.0.0.1",
+            "port": "3306",
+            "database": "sada-international-stage",
+            "user": "root",
+            "password": "9381001171$Ss",
+            "connection": 1
+        }
+    }
+}

@@ -1,0 +1,8 @@
+.list-box{
+    overflow-y: scroll;
+    height: 90%;
+}
+
+.list-box::-webkit-scrollbar {
+    display: none;
+}
