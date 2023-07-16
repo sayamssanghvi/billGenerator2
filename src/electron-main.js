@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
 const path = require('path');
 let db = require('./backend/db/sequelize');
 let vendorBiz = new (require('./backend/biz/vendor.biz'));
@@ -18,6 +18,7 @@ const createWindow = () => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            devTools: false
             // preload: path.join(__dirname, 'preload.js'),
         },
     });
@@ -37,7 +38,43 @@ ipcMain.on('createVendor', async (event, vendor) => {
 
 ipcMain.on('createProduct', async (event, product) => {
     await productBiz.create(product);
-})
+});
+
+ipcMain.on("searchVendor", async (event, searchText) => {
+    let vendors = await vendorBiz.searchByName(searchText);
+    event.returnValue = vendors;
+});
+
+ipcMain.on("searchProductByName", async (event, searchText) => {
+    let products = await productBiz.searchByName(searchText);
+    event.returnValue = products;
+});
+
+ipcMain.on("searchProductByHSN", async (event, searchText) => {
+    console.log("HSN called");
+    let products = await productBiz.searchByHSN(searchText);
+    event.returnValue = products;
+});
+
+ipcMain.on('createBill', async (event, billDetails) => {
+    let bill = await billBiz.create(billDetails);
+    event.returnValue = bill;
+});
+
+ipcMain.on("searchBill", async (event, billNo) => {
+    let bill = await billBiz.search({ billNo });
+    event.returnValue = bill;
+});
+
+ipcMain.on('updateBill', async (event, billDetails) => {
+    let bill = await billBiz.update(billDetails);
+    event.returnValue = bill;
+});
+
+ipcMain.on('savePDF', async (event, data) => {
+    let result = await billBiz.savePDF(data);
+    event.returnValue = result;
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

@@ -1,0 +1,199 @@
+body {
+    font-family: Calibri, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 500;
+}
+
+div {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.products-data div {
+    font-size: 3rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.products-data .product-code {
+    font-size: 2.3rem;
+}
+
+.main {
+    height: 3848px;
+    width: 2803px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    background: url("../../../src/assets/BaseFixedBackgroundLayout_v3.png");
+}
+
+.invoice-number {
+    position: absolute;
+    left: 590px;
+    top: 627px;
+}
+
+.invoice-date {
+    position: absolute;
+    left: 590px;
+    top: 727px;
+}
+
+.terms {
+    position: absolute;
+    left: 590px;
+    top: 837px;
+}
+
+.due-date {
+    position: absolute;
+    left: 590px;
+    top: 950px;
+}
+
+.place-of-supply {
+    position: absolute;
+    left: 2030px;
+    top: 627px;
+}
+
+.po-no {
+    position: absolute;
+    left: 2030px;
+    top: 730px;
+}
+
+.supplier-code {
+    position: absolute;
+    left: 2030px;
+    top: 840px;
+}
+
+.ship-to-container {
+    position: absolute;
+    left: 1550px;
+    top: 1217px;
+    width: 1200px;
+}
+
+.company-name-ship-to {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-weight: 700;
+}
+
+.ship-to {
+    position: absolute;
+    left: 0px;
+    top: 70px;
+}
+
+.ship-to-gstin {
+    position: absolute;
+    left: 0px;
+    top: 177px;
+}
+
+.bill-to-container {
+    position: absolute;
+    left: 120px;
+    top: 1217px;
+    width: 1200px;
+}
+
+.company-name-bill-to {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-weight: 700;
+}
+
+.bill-to {
+    position: absolute;
+    left: 0px;
+    top: 70px;
+}
+
+.bill-to-gstin {
+    position: absolute;
+    left: 0px;
+    top: 177px;
+}
+
+.products {
+    position: absolute;
+    left: 80px;
+    top: 1500px;
+    width: 2600px;
+}
+
+.products div {
+    display: grid !important;
+}
+
+.total-overall {
+    display: grid;
+    position: relative;
+    top: 100px;
+    left: 1780px;
+    width: 800px;
+}
+
+.total-overall div {
+    display: grid !important;
+}
+
+.total-overall-words {
+    display: grid;
+    position: relative;
+    top: 100px;
+    width: 1500px;
+}
+
+.total-overall-words div {
+    display: grid !important;
+    font-weight: 300;
+}
+
+.total-overall-o {
+    display: grid;
+    position: relative;
+    top: 100px;
+    width: 2603px;
+}
+
+.total-overall-o div {
+    display: grid !important;
+}
+
+.rupee-in-words {
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.disclamer {
+    position: absolute;
+    left: 180px;
+    bottom: 180px;
+    width: 1200px;
+    font-weight: 300;
+}
+
+.save-button {
+    top: 3000px;
+    left: 200px;
+}
+
+.save-and-send-button {
+    top: 3300px;
+    left: 400px;
+}

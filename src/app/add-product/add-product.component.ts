@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import _ from 'lodash';
 import { MaterialConstants } from 'src/constants/materialConstants';
 import { MessagesConstants } from 'src/constants/messages';
-// const electron = (<any>window).require('electron');
+const electron = (<any>window).require('electron');
 
 @Component({
   selector: 'app-add-product',
@@ -26,9 +26,9 @@ export class AddProductComponent implements OnInit {
   addProduct(): void {
     let isValid = this.validations();
     if (isValid) {
-      this.openSnackBar(this.msgConstants.VENDOR_ADDED, 5000, false);
+      this.openSnackBar(this.msgConstants.PRODUCT_ADDED, 5000, false);
+      electron.ipcRenderer.send('createProduct', this.product);
       this.ngOnInit();
-      // electron.ipcRenderer.send('createProduct', this.vendor);
     }
   }
 
@@ -44,6 +44,13 @@ export class AddProductComponent implements OnInit {
       return false;
     } else if (this.product.gst == 0) {
       this.openSnackBar(this.msgConstants.GST_NO_REQUIRED, 2000, true);
+      return false;
+    } else if (this.product.hsnSacCode.length != 6) {
+      this.openSnackBar(
+        this.msgConstants.ENTER_A_VALID_HSN_SAC_CODE,
+        2000,
+        true
+      );
       return false;
     } else {
       return true;

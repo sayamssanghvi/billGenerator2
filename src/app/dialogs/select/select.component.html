@@ -1,8 +1,23 @@
-<div class="grid grid-cols-1 h-full">
-  <div class="text-slate-300 text-lg mt-3 mb-3">Select a {{ selectModuleType }}</div>
-  <div class="list-box border-l-2 border-r-2 border-t-2">
-    <div *ngFor="let list of selectList; let i = index" class="cursor-pointer hover:bg-slate-500" (click)="onSelection(list)">
-      <div class="text-slate-300 p-2 pl-2 border-b-2">{{i+1}})   {{ list.name }}</div>
+<div class="h-full w-full">
+  <div class="grid grid-flow-row">
+    <div class="grid grid-flow-row text-slate-300 text-lg mt-3 mb-3 h-fit">
+      Select a {{ selectModuleType }}
+    </div>
+    <div class="grid grid-flow-row list-box border-t-2  ">
+      <div
+        *ngFor="let list of selectList; let i = index"
+        class="cursor-pointer hover:bg-slate-500 border-l-2 border-r-2 border-b-2"
+        (click)="onSelection(list)"
+      >
+        <div class="text-slate-300 p-2 pl-2">
+          {{ i + 1 }})
+          {{
+            selectModuleType == appConstants.VENDOR
+              ? list.companyName
+              : list.productDescription + "  -  " + list.productCode
+          }}
+        </div>
+      </div>
     </div>
   </div>
 </div>

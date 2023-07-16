@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AppConstants } from 'src/constants/appConstants';
 
 @Component({
   selector: 'app-select',
@@ -16,23 +17,29 @@ export class SelectComponent implements OnInit {
     { name: 'Respiratory Masks' },
   ];
 
-  selectTopicType:string;
+  selectTopicType: string;
   selectModuleType: string;
   selectList: any;
 
   constructor(
     public dialogRef: MatDialogRef<SelectComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public appConstants: AppConstants
   ) {
+    console.log(data);
     this.selectTopicType = data.selectTopicType;
     this.selectModuleType = data.selectModuleType;
-    console.log(data.selectList)
     this.selectList = data.selectList;
   }
 
-  ngOnInit(): void { }
-  
-  onSelection(selectedRow:any) {
+  ngOnInit(): void {}
+
+  onSelection(selectedRow: any) {
     console.log(selectedRow);
+    console.log(this.selectModuleType);
+    this.dialogRef.close({
+      value: selectedRow,
+      selectModuleType: this.selectModuleType,
+    });
   }
 }

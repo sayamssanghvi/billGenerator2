@@ -1,0 +1,248 @@
+<div class="main" #billDiv>
+  <p class="invoice-number">{{ bill.billNo }}</p>
+  <p class="invoice-date">{{ bill.invoiceDate }}</p>
+  <p class="terms">{{ bill.terms }}</p>
+  <p class="due-date">{{ bill.dueDate }}</p>
+  <p class="place-of-supply">{{ bill.placeOfSupply }}</p>
+  <p class="po-no">{{ bill.poNo }}</p>
+  <p class="supplier-code">{{ bill.supplierCode }}</p>
+  <div class="bill-to-container">
+    <p class="company-name-bill-to">{{ vendor.companyName }}</p>
+
+    <p class="bill-to">
+      {{ vendor.billTo }}
+    </p>
+    <p class="bill-to-gstin">GSTIN: {{ vendor.gstin }}</p>
+  </div>
+  <div class="ship-to-container">
+    <p class="company-name-ship-to">{{ vendor.companyName }}</p>
+    <p class="ship-to">
+      {{ vendor.shipTo }}
+    </p>
+    <p class="ship-to-gstin">GSTIN: {{ vendor.gstin }}</p>
+  </div>
+  <div class="products">
+    <div class="grid border-8 border-black">
+      <div class="grid-cols-12 border-b-8 border-black">
+        <div
+          class="col-start-8 col-span-2 text-center border-l-8 border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          CGST
+        </div>
+        <div
+          class="col-start-10 col-span-2 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          SGST
+        </div>
+        <div
+          class="col-start-8 col-span-4 text-center border-l-8 border-r-8 border-black"
+          *ngIf="isIGST"
+        >
+          IGST
+        </div>
+      </div>
+      <div class="grid-cols-12 border-b-8 border-black">
+        <div class="col-start-1 col-span-4 border-r-8 border-black pl-2">
+          Name & Description
+        </div>
+        <div class="col-start-5 col-span-1 border-r-8 border-black">
+          Hsn/Sac
+        </div>
+        <div class="col-start-6 col-span-1 text-center border-r-8 border-black">
+          Qty
+        </div>
+        <div class="col-start-7 col-span-1 text-center border-r-8 border-black">
+          Rate
+        </div>
+        <div
+          class="col-start-8 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          %
+        </div>
+        <div
+          class="col-start-9 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          Amount
+        </div>
+        <div
+          class="col-start-10 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          %
+        </div>
+        <div
+          class="col-start-11 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          Amount
+        </div>
+        <div
+          class="col-start-8 col-span-2 text-center border-r-8 border-black"
+          *ngIf="isIGST"
+        >
+          %
+        </div>
+        <div
+          class="col-start-10 col-span-2 text-center border-r-8 border-black"
+          b
+          *ngIf="isIGST"
+        >
+          Amount
+        </div>
+        <div class="col-start-12 col-span-1 text-center">Total</div>
+      </div>
+      <div
+        class="grid-cols-12 border-b-2 border-black products-data"
+        *ngFor="let value of products; let i = index"
+      >
+        <div class="col-start-1 col-span-4 border-r-8 border-black pl-2">
+          {{ value.productDescription }}
+        </div>
+        <div
+          class="col-start-5 col-span-1 border-r-8 border-black pl-1 product-code"
+        >
+          {{ value.productCode }}
+        </div>
+        <div class="col-start-6 col-span-1 text-center border-r-8 border-black">
+          {{ value.qty }}
+        </div>
+        <div class="col-start-7 col-span-1 text-center border-r-8 border-black">
+          {{ value.rate }}
+        </div>
+        <div
+          class="col-start-8 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          {{ value.gst / 2 }}
+        </div>
+        <div
+          class="col-start-9 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          {{ value.totalGSTAmount / 2 }}
+        </div>
+        <div
+          class="col-start-10 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          {{ value.gst / 2 }}
+        </div>
+        <div
+          class="col-start-11 col-span-1 text-center border-r-8 border-black"
+          *ngIf="!isIGST"
+        >
+          {{ value.totalGSTAmount / 2 }}
+        </div>
+        <div
+          class="col-start-8 col-span-2 text-center border-r-8 border-black"
+          *ngIf="isIGST"
+        >
+          {{ value.gst }}
+        </div>
+        <div
+          class="col-start-10 col-span-2 text-center border-r-8 border-black"
+          *ngIf="isIGST"
+        >
+          {{ value.totalGSTAmount }}
+        </div>
+        <div class="col-start-12 col-span-1 text-center">
+          {{ value.totalAmount }}
+        </div>
+      </div>
+    </div>
+    <!-- <div class="total-overall-words">
+      <div class="grid-col-1 mb-4">
+        <div>Total No Of Items -{{ totalNoOfItems }}</div>
+      </div>
+      <div class="grid-cols-1 mb-2">Total In Words</div>
+      <div class="grid-cols-1 ruppe-in-words">
+        <i>Rupees {{ rupeeWords }} Only</i>
+      </div>
+    </div>
+    <div class="total-overall grid">
+      <div class="grid-cols-3 mb-2">
+        <div class="col-start-1 col-span-2">Amount(Excluding GST)</div>
+        <div class="font-medium text-right">{{ totalAmount }}</div>
+      </div>
+      <div class="grid-cols-3 mb-2" *ngIf="!isIGST">
+        <div class="col-start-1 col-span-2">CGST Total Amount</div>
+        <div class="font-medium text-right">{{ totalGstAmount / 2 }}</div>
+      </div>
+      <div class="grid-cols-3 mb-3" *ngIf="!isIGST">
+        <div class="col-start-1 col-span-2">SGST Total Amount</div>
+        <div class="font-medium text-right">{{ totalGstAmount / 2 }}</div>
+      </div>
+      <div class="grid-cols-3 mb-3" *ngIf="isIGST">
+        <div class="col-start-1 col-span-2">IGST Total Amount</div>
+        <div class="font-medium text-right">{{ totalGstAmount }}</div>
+      </div>
+      <div class="grid-cols-3 mb-2 border-t-8 border-b-8 border-black p-1">
+        <div class="col-start-1 col-span-2">Grand Total Amount</div>
+        <div class="text-right">{{ grandTotal }}</div>
+      </div>
+    </div> -->
+    <div class="total-overall-o grid">
+      <div class="grid-cols-12">
+        <div class="col-start-1 col-span-7 pt-11">
+          <div class="grid-cols-12 h-fit mb-4">
+            <div class="col-start-1 col-span-4">Total No Of Items -</div>
+            <div class="col-start-5 col-span-9 text-left">
+              {{ totalNoOfItems }}
+            </div>
+          </div>
+          <div class="grid-cols-1 h-fit mb-4">
+            <div>Total In Words</div>
+          </div>
+          <div class="grid-cols-1">
+            <i>{{ rupeeWords }}</i>
+          </div>
+        </div>
+        <div class="col-start-9 col-span-4">
+          <div class="grid-cols-3 mb-2">
+            <div class="col-start-1 col-span-2">Amount(Excluding GST)</div>
+            <div class="font-medium text-right">{{ totalAmount }}</div>
+          </div>
+          <div class="grid-cols-3 mb-2" *ngIf="!isIGST">
+            <div class="col-start-1 col-span-2">CGST Total Amount</div>
+            <div class="font-medium text-right">{{ totalGstAmount / 2 }}</div>
+          </div>
+          <div class="grid-cols-3 mb-3" *ngIf="!isIGST">
+            <div class="col-start-1 col-span-2">SGST Total Amount</div>
+            <div class="font-medium text-right">{{ totalGstAmount / 2 }}</div>
+          </div>
+          <div class="grid-cols-3 mb-3" *ngIf="isIGST">
+            <div class="col-start-1 col-span-2">IGST Total Amount</div>
+            <div class="font-medium text-right">{{ totalGstAmount }}</div>
+          </div>
+          <div class="grid-cols-3 mb-2 border-t-8 border-b-8 border-black p-1">
+            <div class="col-start-1 col-span-2">Grand Total Amount</div>
+            <div class="text-right">{{ grandTotal }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="disclamer text-4xl">
+    <i>All conflicts are subjected to TamilNadu jurisdiction.</i>
+  </div>
+</div>
+<div class="save-button grid items-center">
+  <button
+    class="bg-slate-400 p-3 px-10 rounded-2xl font-bold text-slate-200 col-start- col-span-2"
+    (click)="downloadAsPDF('save')"
+  >
+    Save
+  </button>
+</div>
+<div class="save-and-send-button grid items-center">
+  <button
+    class="bg-slate-400 p-3 px-10 rounded-2xl font-bold text-slate-200 col-start-5 col-span-2"
+    (click)="downloadAsPDF('send')"
+  >
+    Save And Send
+  </button>
+</div>

@@ -15,11 +15,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
     rate: {
       type: DataTypes.DOUBLE,
       allowNull: false,

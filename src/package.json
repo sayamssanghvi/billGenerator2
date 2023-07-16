@@ -4,5 +4,38 @@
     "version": "0.0.1",
     "description": "Angular CLI + Electron",
     "main": "electron-main.js",
-    "license": "MIT"
+    "author": "Sanghvi InfoTech",
+    "license": "MIT",
+    "scripts": {
+        "pack": "electron-builder --dir",
+        "dist-w": "electron-builder -w"
+    },
+    "build": {
+        "appId": "bill.generator",
+        "mac": {
+            "target": "7z"
+        },
+        "win": {
+            "target": "portable"
+        },
+        "linux": {
+            "target": "AppImage"
+        }
+    },
+    "dependencies": {
+        "config": "^3.3.9",
+        "lodash": "^4.17.21",
+        "mysql2": "^3.4.4",
+        "nodemailer": "^6.9.3",
+        "path-browserify": "^1.0.1",
+        "sequelize": "^6.32.1",
+        "sequelize-auto": "^0.8.8",
+        "tslib": "^2.6.0",
+        "util": "^0.12.5",
+        "zone.js": "^0.11.8"
+    },
+    "devDependencies": {
+        "electron": "24.2.0",
+        "electron-builder": "^24.4.0"
+    }
 }

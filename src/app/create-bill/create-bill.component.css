@@ -11,11 +11,11 @@
 }
 
 .search-form {
-    width: 72%;
+    width: 80%;
     border: 1px solid currentColor;
 }
 
-.search-form-vendor{
+.search-form-vendor {
     width: 85%;
     border: 1px solid currentColor;
 }
@@ -25,7 +25,7 @@
 }
 
 .table-product {
-    height: 85%;
+    height: 87%;
     overflow-y: scroll;
 }
 
@@ -34,5 +34,34 @@
 }
 
 .search-box {
-    width: 87%;
+    width: 83%;
+}
+
+.add-remove-button {
+    /* overflow: hidden;
+    width: 24px;
+    padding: 0;
+    margin: 0;
+    margin-left: 4px;
+    border: 1px solid transparent;
+    height: 20px;
+    border-radius: inherit;
+    color: white;
+    background: transparent url("../../../src/assets/correctIcon24.png") */
+}
+
+.add-remove-button:hover {
+    overflow: hidden;
+    width: 24px;
+    padding: 0;
+    margin: 0;
+    margin-left: 4px;
+    border: 1px solid transparent;
+    height: 20px;
+    border-radius: inherit;
+    background: transparent url("../../../src/assets/closeIcon24.png")
+}
+
+.add-remove-button:hover .serial-number {
+    display: none;
 }

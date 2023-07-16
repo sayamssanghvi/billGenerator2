@@ -1,4 +1,4 @@
-<!-- <div class="flex flex-col h-screen w-full">
+<div class="flex flex-col h-screen w-full">
   <div class="w-full text-xl text-center my-3">
     <p class="home-page-text">Sada International</p>
   </div>
@@ -8,12 +8,18 @@
         Add New Vendor
       </p>
     </div>
-    <div class="flex flex-1 justify-center cursor-pointer" (click)="formType = 2">
+    <div
+      class="flex flex-1 justify-center cursor-pointer"
+      (click)="formType = 2"
+    >
       <p class="w-max py-1 px-7 bg-slate-800 text-white rounded-lg">
         Create Bill
       </p>
     </div>
-    <div class="flex flex-1 justify-start cursor-pointer" (click)="formType = 3">
+    <div
+      class="flex flex-1 justify-start cursor-pointer"
+      (click)="formType = 3"
+    >
       <p class="w-max py-1 px-2 bg-slate-800 text-white border rounded-lg">
         Add New Product
       </p>
@@ -29,6 +35,4 @@
       <app-add-product class="h-full" *ngIf="formType == 3"></app-add-product>
     </div>
   </div>
-</div> -->
-
-<router-outlet></router-outlet>
+</div>

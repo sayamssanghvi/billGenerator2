@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    img {
+        @apply inline-block;
+    }
+}
+
 .snackbar {
     color: #2C2E43;
     background-color: #B2B1B9;

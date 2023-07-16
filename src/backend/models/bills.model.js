@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('Bills', {
     id: {
       autoIncrement: true,
@@ -34,32 +34,53 @@ module.exports = function(sequelize, DataTypes) {
     poNo: {
       type: DataTypes.STRING(50),
       allowNull: true,
-      defaultValue: ""
     },
     supplierCode: {
       type: DataTypes.STRING(50),
       allowNull: true,
-      defaultValue: ""
     },
-    Terms: {
+    terms: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      defaultValue: ""
     },
-    DueDate: {
-      type: DataTypes.DATEONLY,
+    dueDate: {
+      type: DataTypes.STRING(50),
       allowNull: true,
-      defaultValue: "0000-00-00"
     },
-    gstInRupees: {
-      type: DataTypes.DECIMAL(20,2),
+    totalGstAmount: {
+      type: DataTypes.DOUBLE(12, 2),
       allowNull: false,
       defaultValue: 0.00
     },
-    totalPrice: {
-      type: DataTypes.DECIMAL(20,2),
+    totalAmount: {
+      type: DataTypes.DOUBLE(12, 2),
       allowNull: false,
       defaultValue: 0.00
+    },
+    grandTotal: {
+      type: DataTypes.DOUBLE(12, 2),
+      allowNull: false,
+      defaultValue: 0.00
+    },
+    isIGST: {
+      type: DataTypes.TINYINT(1),
+      defaultValue: 0
+    },
+    version: {
+      type: DataTypes.TINYINT(3),
+      defaultValue: 1
+    },
+    meta: {
+      type: DataTypes.JSON,
+      allowNull: false
+    },
+    isActive: {
+      type: DataTypes.TINYINT(1),
+      defaultValue: 1
+    },
+    isDeleted: {
+      type: DataTypes.DOUBLE(12, 2),
+      defaultValue: 0
     },
     createdAt: {
       type: DataTypes.DATE,

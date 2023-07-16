@@ -1,7 +1,7 @@
 {
   "name": "bill-generator2",
   "version": "0.0.0",
-  "main": "./src/main.js",
+  "main": "./src/main.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -28,13 +28,17 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "config": "^3.3.9",
-    "docx": "^8.0.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "lodash": "^4.17.21",
     "mysql2": "^3.3.2",
+    "nodemailer": "^6.9.3",
+    "number-to-words": "^1.2.4",
     "path-browserify": "^1.0.1",
     "rxjs": "~7.5.0",
     "sequelize": "^6.31.1",
     "sequelize-auto": "^0.8.8",
+    "to-words": "^3.6.1",
     "tslib": "^2.3.0",
     "util": "^0.12.5",
     "zone.js": "~0.11.4"
@@ -45,9 +49,11 @@
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
     "@types/lodash": "^4.14.194",
+    "@types/number-to-words": "^1.2.1",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.0.1",
     "electron": "^24.2.0",
+    "electron-builder": "^24.4.0",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -57,5 +63,10 @@
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
     "typescript": "~4.7.2"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

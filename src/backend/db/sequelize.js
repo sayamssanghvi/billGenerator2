@@ -16,8 +16,6 @@ const {
     port
 } = config.db.mysql;
 
-console.log(host + " " + user + " " + password + " " + database + " " + port);
-
 const sequelize = new Sequelize(database, user, password, {
     host,
     pool: {

@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import _ from 'lodash';
 import { MaterialConstants } from 'src/constants/materialConstants';
 import { MessagesConstants } from 'src/constants/messages';
-// const electron = (<any>window).require('electron');
+const electron = (<any>window).require('electron');
 
 @Component({
   selector: 'app-add-vendor',
@@ -28,8 +28,8 @@ export class AddVendorComponent implements OnInit {
     let isValid = this.validations();
     if (isValid) {
       this.openSnackBar(this.msgConstants.VENDOR_ADDED, 5000, false);
+      electron.ipcRenderer.send('createVendor', this.vendor);
       this.ngOnInit();
-      // electron.ipcRenderer.send('createVendor', this.vendor);
     }
   }
 

@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  title = 'billGenerator2';
-  formType: number;
-  constructor() {
-    this.formType = 2;
-  }
-
 }

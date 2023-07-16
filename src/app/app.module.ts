@@ -14,6 +14,8 @@ import { MaterialConstants } from 'src/constants/materialConstants';
 import { MessagesConstants } from 'src/constants/messages';
 import { FormsModule } from '@angular/forms';
 import { DirectivesModule } from 'src/directives/directives.module';
+import { BillComponent } from './bill/bill.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { DirectivesModule } from 'src/directives/directives.module';
     AddVendorComponent,
     CreateBillComponent,
     SelectComponent,
+    BillComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
