@@ -35,7 +35,7 @@
         "zone.js": "^0.11.8"
     },
     "devDependencies": {
-        "electron": "24.2.0",
-        "electron-builder": "^24.4.0"
+        "electron": "22.0.0",
+        "electron-builder": "22.0.0"
     }
 }

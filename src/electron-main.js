@@ -4,6 +4,8 @@ let db = require('./backend/db/sequelize');
 let vendorBiz = new (require('./backend/biz/vendor.biz'));
 let billBiz = new (require('./backend/biz/bill.biz'));
 let productBiz = new (require('./backend/biz/product.biz'));
+let url = require('url');
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // if (require('electron-squirrel-startup')) {
 //     app.quit();
@@ -24,7 +26,11 @@ const createWindow = () => {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadFile(path.join(__dirname, 'index.html'));
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, '/index.html'),
+        protocol: "file:",
+        slashes: true
+    }));
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
